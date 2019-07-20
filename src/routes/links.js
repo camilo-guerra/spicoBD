@@ -44,6 +44,13 @@ res.redirect('/links');
 
 });
 
+router.get('/editar/:id', async(req,res)=>{
+
+    const {id} = req.params;
+
+   const usuario = await pool.query('select * from usuarios where idusuarios = ?',[id])
+    res.render('links/editar',{usaurio:usuario[0]});
+});
 
 
 module.exports = router;    
