@@ -36,10 +36,10 @@ router.post('/add', async (req, res) => {
 
 router.get('/delete/:id', async(req,res)=>{
 
-const {idusuarios} = req.params;
-await pool.query('delete from usuarios where idusuarios = ?',[idusuarios]);
+const {id} = req.params;
+await pool.query('delete from usuarios where idusuarios = ?',[id]);
 
-res.redirect('/');
+res.redirect('/links');
 
 
 });
