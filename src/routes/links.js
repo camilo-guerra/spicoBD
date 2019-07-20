@@ -11,10 +11,10 @@ res.render('links/add');
 });
 
 router.post('/add',async (req,res)=>{
-    const{idusuarios,fullname} = req.body;
+    const{idusuarios,full_name} = req.body;
     const newLink = {
 idusuarios,
-fullname
+full_name
     };
 console.log(newLink);
 
