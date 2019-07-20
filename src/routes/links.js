@@ -10,9 +10,20 @@ res.render('links/add');
 
 });
 
-router.post('/add',(req,res)=>{
+router.post('/add',async (req,res)=>{
+    const{titulo,url,descripcion} = req.body;
+    const newLink = {
+titulo,
+url,
+descripcion
+    };
+console.log(newLink);
 
+await pool.query('insert into usuarios set ?, [newLink.titulo,newlink.descripcion]');
     res.send('recibido');
+
+
+
 });
 
 module.exports = router;    
