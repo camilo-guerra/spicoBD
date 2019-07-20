@@ -30,6 +30,7 @@ router.post('/add', async (req, res) => {
   
 
     await pool.query('insert into usuarios set ?', [newLink]);
+    req.flash('exitoso','usuario creado correctamente');
     res.send('recibido');
 
 });
@@ -52,5 +53,19 @@ router.get('/editar/:id', async(req,res)=>{
     res.render('links/editar',{usaurio:usuario[0]});
 });
 
+router.post('/editar/:id', async(req,res)=>{
+
+    const {id} = req.params;
+    const { idusuarios, full_name } = req.body;
+    const newLink = {
+        idusuarios,
+        full_name
+    };
+
+   await pool.query('update usuarios set = ? where id = ?',[newLink,id]);
+   
+res.redirect('/links');
+    
+});
 
 module.exports = router;    
