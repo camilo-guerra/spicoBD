@@ -27,12 +27,16 @@ router.post('/add', async (req, res) => {
         idusuarios,
         full_name
     };
-    console.log(newLink);
+  
 
     await pool.query('insert into usuarios set ?', [newLink]);
     res.send('recibido');
 
+});
 
+router.get('/delete/:id', async(req,res)=>{
+
+console.log(req.params.id);
 
 });
 
