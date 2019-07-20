@@ -19,7 +19,7 @@ descripcion
     };
 console.log(newLink);
 
-await pool.query('insert into usuarios set ?, [newLink]');
+await pool.query('insert into usuarios set ?', [newLink]);
     res.send('recibido');
 
 
