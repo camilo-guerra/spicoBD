@@ -39,7 +39,7 @@ router.get('/delete/:id', async(req,res)=>{
 const {idusuarios} = req.params;
 await pool.query('delete from usuarios where idusuarios = ?',[idusuarios]);
 
-res.redirect('links/list');
+res.redirect('/');
 
 
 });
