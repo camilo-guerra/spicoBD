@@ -10,6 +10,17 @@ res.render('links/add');
 
 });
 
+router.get('/',async (req,res)=>{
+   
+
+const usuarios = await pool.query('select * from  usuarios');
+console.log(usuarios);
+res.send('recibido');
+
+
+
+});
+
 router.post('/add',async (req,res)=>{
     const{idusuarios,full_name} = req.body;
     const newLink = {
@@ -24,5 +35,7 @@ await pool.query('insert into usuarios set ?', [newLink]);
 
 
 });
+
+
 
 module.exports = router;    
