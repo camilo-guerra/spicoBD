@@ -6,9 +6,13 @@ const path = require ('path');
  const session = require('express-session');
 const mysqlstore = require('express-mysql-session');
 const {database} = require('./keys');
+const passport= require('passport');
+
+
 
 // inicializo mi aplicación
 const app = express();
+require('./lib/passport');
 
 //puerto de escucha del aplicativo
 app.set('port',process.env.PORT || 1500);
@@ -39,6 +43,8 @@ app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //variables globales
 

@@ -31,7 +31,7 @@ router.post('/add', async (req, res) => {
 
     await pool.query('insert into usuarios set ?', [newLink]);
     req.flash('exitoso','usuario creado correctamente');
-    res.send('recibido');
+    res.redirect('/links');
 
 });
 
@@ -39,7 +39,7 @@ router.get('/delete/:id', async(req,res)=>{
 
 const {id} = req.params;
 await pool.query('delete from usuarios where idusuarios = ?',[id]);
-
+req.flash('exitoso','usuario eliminado correctamente');
 res.redirect('/links');
 
 
@@ -63,7 +63,7 @@ router.post('/editar/:id', async(req,res)=>{
     };
 
    await pool.query('update usuarios set = ? where id = ?',[newLink,id]);
-   
+   req.flash('exitoso','usuario editado correctamente');
 res.redirect('/links');
     
 });
