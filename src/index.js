@@ -37,11 +37,11 @@ next();
 
 //routes
 
-app.use(require('./routes'));
+app.use(require('./routes/index'));
 
 app.use(require('./routes/authentication'));
 
-app.use(require('/links','./routes/links'));
+app.use('/links', require('./routes/links'));
 
 
 // public
