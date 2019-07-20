@@ -14,8 +14,8 @@ router.get('/',async (req,res)=>{
    
 
 const usuarios = await pool.query('select * from  usuarios');
-console.log(usuarios);
-res.send('recibido');
+
+res.render('/links/list',{usuarios});
 
 
 
