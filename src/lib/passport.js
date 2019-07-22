@@ -15,7 +15,7 @@ passport.use('local.signup', new Strategy({
 const newUser = {
     
     idusuarios : usernameField,
-    full_name = 'ejemplo'
+    full_name : 'ejemplo'
     
 };
 
