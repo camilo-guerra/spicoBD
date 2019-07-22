@@ -11,7 +11,7 @@ passport.use('local.signup', new Strategy({
     passwordField:'idusuarios',
     passReqToCallback: true
 },async (req,usernameField,passwordField,done)=>{
-    const {full_name} = req.body;
+    
 const newUser = {
     
     idusuarios : usernameField,
@@ -19,7 +19,7 @@ const newUser = {
     
 };
 
-await pool.query('insert into usuarios set ?',[newUser]);
+await pool.query('insert into usuarios set ?',newUser);
 return done(null,newUser);
 }));
 
