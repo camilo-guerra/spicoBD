@@ -3,14 +3,15 @@ const passport = require('passport');
 const router = express.Router();
 
 router.get('/signup', (req, res) => {
+    console.log('before');
     res.render('auth/signup');
   });
 
 router.post ('/signup',(req,res)=>{
-
+    console.log('signup');
 passport.authenticate('local.signup',{
 
-    successRedirect:'/profile',
+    successRedirect: '/profile',
     failureRedirect: '/signup',
     failureFlash:true
 });
