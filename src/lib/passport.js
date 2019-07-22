@@ -3,7 +3,7 @@ const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 
 const pool=  require('../database');
-passport.use('local.singup', new Strategy({
+passport.use('local.signup', new Strategy({
 
     usernameField:'idusuarios',
     passwordField:'idusuarios',

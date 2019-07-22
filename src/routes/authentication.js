@@ -8,7 +8,8 @@ router.get('/signup', (req, res) => {
 
 router.post ('/signup',(req,res)=>{
 
-passport.authenticate('local.singup',{
+passport.authenticate('local.signup',{
+
     successRedirect:'/profile',
     failureRedirect: '/signup',
     failureFlash:true
@@ -19,7 +20,8 @@ passport.authenticate('local.singup',{
 
 
     router.get('/profile',(req,res)=>{
-res.send('bien');
+        console.log('profiel');
+        res.send('bien');
 
 
     });
