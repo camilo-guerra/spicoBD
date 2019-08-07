@@ -3,10 +3,9 @@ const morgan = require ('morgan');
 const expresshbs = require('express-handlebars');
 const path = require ('path');
  const flash =  require('connect-flash');
- const session = require('express-session');
-const mysqlstore = require('express-mysql-session');
+ 
 const {database} = require('./keys');
-const passport= require('passport');
+
 
 
 
@@ -33,12 +32,6 @@ app.set('view engine','.hbs');
 
 //middleware
 
-app.use(session({
-    secret:'piarsession',
-    resave:false,
-    saveUninitialized:false,
-    store: new mysqlstore(database)
-}))
 app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
