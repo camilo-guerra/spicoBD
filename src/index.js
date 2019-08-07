@@ -2,7 +2,6 @@ const express = require ('express');
 const morgan = require ('morgan');
 const expresshbs = require('express-handlebars');
 const path = require ('path');
- const flash =  require('connect-flash');
  
 const {database} = require('./keys');
 
@@ -32,18 +31,12 @@ app.set('view engine','.hbs');
 
 //middleware
 
-app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 
 //variables globales
-
-app.use((req,res,next)=>{
-   app.locals.exitoso =  req.flash('exitoso')
-next();
-});
 
 
 //routes
